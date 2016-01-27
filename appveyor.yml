@@ -7,6 +7,6 @@ build_script:
   -ps: |
     Install-Module -Name PSScriptAnalyzer
     Invoke-ScriptAnalyzer -Path .
-  - ps: bootstrap.ps1
+  -ps: .\bootstrap.ps1
 
 
