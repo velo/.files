@@ -57,3 +57,6 @@ echo '7=C:\Program Files\Java\jdk1.7.0_79\' >> ~/.jvmconfig
 echo '8=C:\Program Files\java\jdk1.8.0_72\' >> ~/.jvmconfig
 echo "" >>  ~/.jvmconfig
 
+
+echo "alias open=cygstart" >>  ~/.bashrc
+echo "" >>  ~/.bashrc
