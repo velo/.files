@@ -24,6 +24,10 @@ choco install pushbullet
 choco install openoffice
 
 choco install webexff
+choco install webexnetworkplayer
+
+choco install mpc-hc
+choco install steam
 
 choco install virtualbox
 choco install virtualbox.extensionpack
