@@ -1,11 +1,9 @@
 os: Windows Server 2012
 
-install:
+build_script:
   -ps: |
     Install-Module -Name PSScriptAnalyzer
     Invoke-ScriptAnalyzer -Path .
-  
-build_script:
-  - cmd: dir
+  - ps: .\bootstrap.ps1
 
 
