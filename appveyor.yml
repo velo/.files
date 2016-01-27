@@ -1,4 +1,4 @@
-os: Windows Server 2012
+os: unstable
 
 install:
   - ps: (new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
