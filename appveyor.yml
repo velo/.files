@@ -4,9 +4,8 @@ install:
   - cmd: dir
 
 build_script:
-  - ps: |
-    Install-Module -Name PSScriptAnalyzer
-    Invoke-ScriptAnalyzer -Path .
-    .\bootstrap.ps1
+  - ps: Install-Module -Name PSScriptAnalyzer
+  - ps: Invoke-ScriptAnalyzer -Path .
+  - ps: .\bootstrap.ps1
 
 
