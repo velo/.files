@@ -1,8 +1,9 @@
 os: unstable
 
 install:
-  - ps: (new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
-  - ps: Install-Module -Name PSScriptAnalyzer
+  - ps: Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
+  - ps: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted 
+  - ps: Install-Module -Name "Pester","PSScriptAnalyzer" -Scope CurrentUser
   - ps: Invoke-ScriptAnalyzer -Path .
 
 build_script:
