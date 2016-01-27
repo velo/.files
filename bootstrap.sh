@@ -11,13 +11,13 @@ git config --global core.filemode false
 docker-machine create -d "virtualbox" dm
 eval $(docker-machine env dm)
 
-git clone git@github.com:velo/takari-ide.git
-cd takari-ide
+git clone git@github.com:velo/takari-ide.git ~/takari-ide
+cd ~/takari-ide
 gem install mustache
 ./product.rb
 mkdir -p /cygdrive/c/tools/eclipse
 cp -r io.tesla.ide.product/target/products/io.tesla.ide.product/win32/win32/x86_64/* /cygdrive/c/tools/eclipse
-powershell -file `cygpath -a -w eclipse.ps1`
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/velo/.files/master/eclipse.ps1'))"
 
 
 
