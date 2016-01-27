@@ -21,7 +21,7 @@ choco install adobeair
 choco install telegram.install
 choco install adobe-creative-cloud
 choco install pushbullet
-choco install libreoffice
+choco install openoffice
 
 choco install webexff
 
