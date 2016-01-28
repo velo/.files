@@ -14,8 +14,11 @@ choco install notepadplusplus.install
 choco install 7zip.install
 choco install javaruntime
 choco install skype
+
 choco install jdk8
 choco install jdk7
+New-Item -Path HKLM:Software\JavaSoft -Name Prefs -Force
+
 choco install maven
 choco install adobeair
 choco install telegram.install
@@ -39,11 +42,12 @@ choco install pgadmin3
 
 choco install turbo
 
-choco install cygwin --params '-s http://ucmirror.canterbury.ac.nz/cygwin/'
+choco install cygwin
 [Environment]::SetEnvironmentVariable("PATH", $env:Path + ";c:\cygwin" )
 
 C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages git --packages wget --packages git-completion --packages ruby --packages python --packages rubygems
 
 C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages unzip
+C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages dos2unix
 
 choco feature disable -n allowGlobalConfirmation
