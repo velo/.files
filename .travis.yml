@@ -5,6 +5,3 @@ install:
 
 script:
   - ./build/build.sh
-
-sudo: required
-
