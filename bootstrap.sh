@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -eo pipefail
+[[ "${DEBUG:-}" ]] && set -x
+
 echo 'HISTFILESIZE=2500' ~/.bashrc
 echo "" >>  ~/.bashrc
 
