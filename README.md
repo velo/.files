@@ -1,3 +1,4 @@
+[![Shellcheck status](https://travis-ci.org/velo/.files.svg?branch=master)](https://travis-ci.org/velo/.files)
 [![Build status](https://ci.appveyor.com/api/projects/status/aps6f8343iayc2p2/branch/master?svg=true)](https://ci.appveyor.com/project/velo/files/branch/master)
 
 # My dotfiles for Windows
