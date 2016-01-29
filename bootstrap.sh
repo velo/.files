@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -eo pipefail
-[[ "${DEBUG:-}" ]] && set -x
 
 echo 'HISTFILESIZE=2500' ~/.bashrc
 echo "" >>  ~/.bashrc
@@ -13,7 +12,7 @@ git config --global push.default matching
 git config --global core.filemode false
 
 docker-machine create -d "virtualbox" dm
-eval $(docker-machine env dm)
+eval "$(docker-machine env dm)"
 
 git clone git@github.com:velo/takari-ide.git ~/takari-ide
 cd ~/takari-ide
@@ -36,9 +35,12 @@ pip install git-up
 rm setuptools-19.6.zip
 
 
-echo '' >> ~/.inputrc
-echo '"\e[1;5C": forward-word   # ctrl + right' >> ~/.inputrc
-echo '"\e[1;5D": backward-word  # ctrl + left ' >> ~/.inputrc
+{
+echo '# ctrl + arrows on bash';
+echo '"\e[1;5C": forward-word   # ctrl + right';
+echo '"\e[1;5D": backward-word  # ctrl + left ';
+echo '';
+} >> ~/.inputrc
 
 
 wget https://fpdownload.macromedia.com/pub/flashplayer/updaters/20/flashplayer_20_sa_debug.exe -O /usr/bin/flashplayer.exe
@@ -47,20 +49,28 @@ chmod +x /usr/bin/flashplayer.exe
 
 npm install http-server -g
 
-echo "" >> ~/.bashrc
-echo "function pc {   [ -d .git ] && git name-rev --name-only @; }" >> ~/.bashrc
-echo 'export PS1='"'"'\n\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \e[36m$(pc)\e[m\n$ '"'"'' >> ~/.bashrc
-echo "" >>  ~/.bashrc
+{
+echo "# git branch on bash";
+echo "function pc {   [ -d .git ] && git name-rev --name-only @; }";
+echo 'export PS1='"'"'\n\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \e[36m$(pc)\e[m\n$ '"'"'';
+echo "";
+} >>  ~/.bashrc
 
 
 git clone https://github.com/caarlos0/jvm.git ~/.jvm
-echo "source ~/.jvm/jvm.sh" >> ~/.bashrc
-echo "" >>  ~/.bashrc
+{
+echo "source ~/.jvm/jvm.sh";
+echo "";
+} >>  ~/.bashrc
 
-echo '7=C:\Program Files\Java\jdk1.7.0_79\' >> ~/.jvmconfig
-echo '8=C:\Program Files\java\jdk1.8.0_72\' >> ~/.jvmconfig
-echo "" >>  ~/.jvmconfig
+{
+echo '7=C:\Program Files\Java\jdk1.7.0_79\';
+echo '8=C:\Program Files\java\jdk1.8.0_72\';
+echo "";
+} >>  ~/.jvmconfig
 
 
-echo "alias open=cygstart" >>  ~/.bashrc
-echo "" >>  ~/.bashrc
+{
+echo "alias open=cygstart"
+echo ""
+} >>  ~/.bashrc
