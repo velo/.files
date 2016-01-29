@@ -49,7 +49,7 @@ npm install http-server -g
 
 echo "" >> ~/.bashrc
 echo "function pc {   [ -d .git ] && git name-rev --name-only @; }" >> ~/.bashrc
-echo "export PS1='\n\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \e[36m$(pc)\e[m\n$ '" >> ~/.bashrc
+echo 'export PS1='"'"'\n\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \e[36m$(pc)\e[m\n$ '"'"'' >> ~/.bashrc
 echo "" >>  ~/.bashrc
 
 
