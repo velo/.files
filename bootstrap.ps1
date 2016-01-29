@@ -45,9 +45,6 @@ choco install turbo
 choco install cygwin
 [Environment]::SetEnvironmentVariable("PATH", $env:Path + ";c:\cygwin" )
 
-C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages git --packages wget --packages git-completion --packages ruby --packages python --packages rubygems
-
-C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages unzip
-C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages dos2unix
+C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages git --packages wget --packages git-completion --packages ruby --packages python --packages rubygems --packages unzip --packages dos2unix --packages curl
 
 choco feature disable -n allowGlobalConfirmation
