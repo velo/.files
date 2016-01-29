@@ -1,8 +1,12 @@
 #!/bin/sh
 set -eo pipefail
 
-echo 'HISTFILESIZE=2500' ~/.bashrc
-echo "" >>  ~/.bashrc
+
+{
+echo 'HISTFILESIZE=5000' 
+echo ""
+} >>  ~/.bashrc
+
 
 chgrp -Rv Users ~/.ssh/* 
 chmod -vR 600 ~/.ssh/id_rsa
@@ -11,8 +15,10 @@ git config --global user.name "Marvin Froeder"
 git config --global push.default matching
 git config --global core.filemode false
 
+
 docker-machine create -d "virtualbox" dm
 eval "$(docker-machine env dm)"
+
 
 git clone git@github.com:velo/takari-ide.git ~/takari-ide
 cd ~/takari-ide
@@ -23,10 +29,9 @@ cp -r io.tesla.ide.product/target/products/io.tesla.ide.product/win32/win32/x86_
 powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/velo/.files/master/eclipse.ps1'))"
 
 
-
 npm install -g gulp
 npm install -g karma
-
+npm install -g http-server
 
 
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
@@ -47,8 +52,6 @@ wget https://fpdownload.macromedia.com/pub/flashplayer/updaters/20/flashplayer_2
 chmod +x /usr/bin/flashplayer.exe
 
 
-npm install http-server -g
-
 {
 echo "# git branch on bash";
 echo "function pc {   [ -d .git ] && git name-rev --name-only @; }";
@@ -63,6 +66,7 @@ echo "source ~/.jvm/jvm.sh";
 echo "";
 } >>  ~/.bashrc
 
+
 {
 echo '7=C:\Program Files\Java\jdk1.7.0_79\';
 echo '8=C:\Program Files\java\jdk1.8.0_72\';
@@ -74,3 +78,6 @@ echo "";
 echo "alias open=cygstart"
 echo ""
 } >>  ~/.bashrc
+
+
+echo "export PROMPT_COMMAND='history -a; history -r'" >> ~/.bashrc
