@@ -52,10 +52,11 @@ wget https://fpdownload.macromedia.com/pub/flashplayer/updaters/20/flashplayer_2
 chmod +x /usr/bin/flashplayer.exe
 
 
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 {
 echo "# git branch on bash";
-echo "function pc {   [ -d .git ] && git name-rev --name-only @; }";
-echo 'export PS1='"'"'\n\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \e[36m$(pc)\e[m\n$ '"'"'';
+echo "source ~/.git-prompt.sh";
+echo 'export PS1='"'"'\n\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \e[36m$(__git_ps1)\e[m\n$ '"'"'';
 echo "";
 } >>  ~/.bashrc
 
