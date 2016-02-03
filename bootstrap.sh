@@ -15,6 +15,18 @@ git config --global user.name "Marvin Froeder"
 git config --global push.default matching
 git config --global core.filemode false
 
+{
+echo '[difftool]'
+echo '	prompt = false'
+echo '	bc3 = trustExitCode'
+echo '[difftool "bc3"]'
+echo '	cmd = \"c:/program files/beyond compare 4/BComp.com\" \"$(cygpath -w \"$LOCAL\")\" \"$(cygpath -w \"$REMOTE\")\" /lefttitle=\"$(cygpath -w \"$LOCAL\")\" /righttitle=\"$(cygpath -w \"$REMOTE\")\" /leftreadonly /rightreadonly'
+echo '[diff]'
+echo '	tool = bc3'
+} >> ~/.gitconfig
+
+git config --global merge.tool bc3
+git config --global mergetool.bc3.path "c:/Program Files/Beyond Compare 4/bcomp.exe"
 
 docker-machine create -d "virtualbox" dm
 eval "$(docker-machine env dm)"
