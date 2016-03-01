@@ -89,8 +89,28 @@ echo "";
 
 {
 echo "alias open=cygstart"
+echo "alias clear='printf "'"\033c"'"'"
 echo ""
 } >>  ~/.bashrc
 
 
 echo "export PROMPT_COMMAND='history -a; history -r'" >> ~/.bashrc
+
+{
+echo "alias open=cygstart"
+echo "alias pwd='cygpath -aw .'"
+echo "alias docker-machine='docker-machine.exe'"
+echo "alias clear='printf "'"\033c"'"'"
+echo ""
+} >>  ~/.bashrc
+
+
+wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -O ~/.docker-completion.sh
+wget https://raw.githubusercontent.com/docker/machine/master/contrib/completion/bash/docker-machine.bash -O ~/.docker-machine-completion.sh
+chmod +x .docker-completion.sh
+chmod +x .docker-machine-completion.sh
+
+{
+echo "source ~/.docker-completion.sh"
+echo "source ~/.docker-compose-completion.sh"
+} >>  ~/.bashrc
