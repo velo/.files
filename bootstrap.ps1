@@ -40,7 +40,7 @@ choco install docker-machine
 choco install postgresql-9.3
 choco install pgadmin3
 
-choco install turbo
+choco install heroku-toolbelt
 
 choco install cygwin
 [Environment]::SetEnvironmentVariable("PATH", $env:Path + ";c:\cygwin" )
