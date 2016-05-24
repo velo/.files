@@ -32,10 +32,10 @@ choco install webexnetworkplayer
 choco install mpc-hc
 choco install steam
 
+choco install turbo
+
 choco install postgresql-9.3
 choco install pgadmin3
-
-choco install heroku-toolbelt
 
 choco install cygwin
 [Environment]::SetEnvironmentVariable("PATH", $env:Path + ";c:\tools\cygwin" )
