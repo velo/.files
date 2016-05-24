@@ -22,7 +22,7 @@ New-Item -Path HKLM:Software\JavaSoft -Name Prefs -Force
 choco install maven
 choco install adobeair
 choco install telegram.install
-choco install adobe-creative-cloud
+choco install whatsapp
 choco install pushbullet
 choco install openoffice
 
@@ -32,19 +32,15 @@ choco install webexnetworkplayer
 choco install mpc-hc
 choco install steam
 
-choco install virtualbox
-choco install virtualbox.extensionpack
-choco install docker
-choco install docker-machine
-
 choco install postgresql-9.3
 choco install pgadmin3
 
 choco install turbo
 
 choco install cygwin
-[Environment]::SetEnvironmentVariable("PATH", $env:Path + ";c:\cygwin" )
+[Environment]::SetEnvironmentVariable("PATH", $env:Path + ";c:\tools\cygwin" )
 
-C:\ProgramData\chocolatey\lib\Cygwin\tools\cygwin\cygwinsetup.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages git --packages wget --packages git-completion --packages ruby --packages python --packages rubygems --packages unzip --packages dos2unix --packages curl --packages procps --packages gnupg 
+Invoke-WebRequest -Uri https://www.cygwin.com/setup-x86_64.exe -OutFile setup-x86_64.exe
+setup-x86_64.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages git --packages wget --packages git-completion --packages ruby --packages python --packages rubygems --packages unzip --packages dos2unix --packages curl --packages procps --packages gnupg 
 
 choco feature disable -n allowGlobalConfirmation
