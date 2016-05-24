@@ -29,8 +29,17 @@ git config --global merge.tool bc3
 git config --global mergetool.bc3.path "c:/Program Files/Beyond Compare 4/bcomp.exe"
 git config --global mergetool.keepBackup false
 
-docker-machine create -d "virtualbox" dm
-eval "$(docker-machine env dm)"
+git clone https://github.com/caarlos0/jvm.git ~/.jvm
+{
+echo "source ~/.jvm/jvm.sh";
+echo "";
+} >>  ~/.bashrc
+
+{
+echo '7=C:\Program Files\Java\jdk1.7.0_79\';
+echo '8=C:\Program Files\java\jdk1.8.0_72\';
+echo "";
+} >>  ~/.jvmconfig
 
 
 git clone git@github.com:velo/takari-ide.git ~/takari-ide
@@ -50,7 +59,6 @@ npm install -g http-server
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 easy_install pip
 pip install git-up
-rm setuptools-19.6.zip
 
 
 {
@@ -73,21 +81,6 @@ echo 'export PS1='"'"'\n\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \e[36m$(__git_
 echo "";
 } >>  ~/.bashrc
 
-
-git clone https://github.com/caarlos0/jvm.git ~/.jvm
-{
-echo "source ~/.jvm/jvm.sh";
-echo "";
-} >>  ~/.bashrc
-
-
-{
-echo '7=C:\Program Files\Java\jdk1.7.0_79\';
-echo '8=C:\Program Files\java\jdk1.8.0_72\';
-echo "";
-} >>  ~/.jvmconfig
-
-
 {
 echo "alias open=cygstart"
 echo "alias clear='printf "'"\033c"'"'"
@@ -100,16 +93,13 @@ echo "export PROMPT_COMMAND='history -a; history -r'" >> ~/.bashrc
 {
 echo "alias open=cygstart"
 echo "alias pwd='cygpath -aw .'"
-echo "alias docker-machine='docker-machine.exe'"
 echo "alias clear='printf "'"\033c"'"'"
 echo ""
 } >>  ~/.bashrc
 
 
 wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -O ~/.docker-completion.sh
-wget https://raw.githubusercontent.com/docker/machine/master/contrib/completion/bash/docker-machine.bash -O ~/.docker-machine-completion.sh
 chmod +x .docker-completion.sh
-chmod +x .docker-machine-completion.sh
 
 {
 echo "source ~/.docker-completion.sh"
