@@ -99,9 +99,27 @@ echo ""
 
 
 wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -O ~/.docker-completion.sh
-chmod +x .docker-completion.sh
-
+chmod +x ~/.docker-completion.sh
 {
 echo "source ~/.docker-completion.sh"
-echo "source ~/.docker-compose-completion.sh"
 } >>  ~/.bashrc
+
+
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.sh
+chmod +x ~/.git-completion.sh
+{
+echo "source ~/.git-completion.sh"
+} >>  ~/.bashrc
+
+
+{
+echo "alias open=cygstart"
+echo "alias pwd='cygpath -aw .'"
+echo "alias clear='printf '"'\033c'"''"
+} >>  ~/.bashrc
+
+export PROMPT_COMMAND='__jvm_main ; history -a ; history -r'
+
+HISTCONTROL=ignoredups:erasedups
+
+HISTFILESIZE=5000

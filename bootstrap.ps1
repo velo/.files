@@ -41,6 +41,6 @@ choco install cygwin
 [Environment]::SetEnvironmentVariable("PATH", $env:Path + ";c:\tools\cygwin" )
 
 Invoke-WebRequest -Uri https://www.cygwin.com/setup-x86_64.exe -OutFile setup-x86_64.exe
-setup-x86_64.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages git --packages wget --packages git-completion --packages ruby --packages python --packages rubygems --packages unzip --packages dos2unix --packages curl --packages procps --packages gnupg 
+setup-x86_64.exe -s http://ucmirror.canterbury.ac.nz/cygwin/  --quiet-mode --packages git --packages wget --packages git-completion --packages ruby --packages python --packages rubygems --packages unzip --packages dos2unix --packages curl --packages procps --packages gnupg --packages bash-completion
 
 choco feature disable -n allowGlobalConfirmation
