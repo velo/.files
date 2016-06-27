@@ -90,13 +90,6 @@ echo ""
 
 echo "export PROMPT_COMMAND='history -a; history -r'" >> ~/.bashrc
 
-{
-echo "alias open=cygstart"
-echo "alias pwd='cygpath -aw .'"
-echo "alias clear='printf "'"\033c"'"'"
-echo ""
-} >>  ~/.bashrc
-
 
 wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -O ~/.docker-completion.sh
 chmod +x ~/.docker-completion.sh
@@ -112,14 +105,18 @@ echo "source ~/.git-completion.sh"
 } >>  ~/.bashrc
 
 
-{
-echo "alias open=cygstart"
-echo "alias pwd='cygpath -aw .'"
-echo "alias clear='printf '"'\033c'"''"
-} >>  ~/.bashrc
-
 export PROMPT_COMMAND='__jvm_main ; history -a ; history -r'
 
 HISTCONTROL=ignoredups:erasedups
 
 HISTFILESIZE=5000
+
+
+{
+echo 'bcompare() { '
+echo 'A=$(cygpath -a -w "$1");'
+echo 'B=$(cygpath -a -w "$2");'
+echo '/cygdrive/c/Program\ Files/Beyond\ Compare\ 4/BCompare.exe  $A $B  '
+echo '}'
+} >>  ~/.bashrc
+
