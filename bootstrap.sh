@@ -120,3 +120,10 @@ echo '/cygdrive/c/Program\ Files/Beyond\ Compare\ 4/BCompare.exe  $A $B  '
 echo '}'
 } >>  ~/.bashrc
 
+{
+echo 'edit() { '
+echo 'FILE=$(cygpath -a -w "$1"); '
+echo '/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe $FILE '
+echo '}'
+} >>  ~/.bashrc
+
