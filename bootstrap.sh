@@ -116,7 +116,7 @@ HISTFILESIZE=5000
 echo 'bcompare() { '
 echo 'A=$(cygpath -a -w "$1");'
 echo 'B=$(cygpath -a -w "$2");'
-echo '/cygdrive/c/Program\ Files/Beyond\ Compare\ 4/BCompare.exe  $A $B  '
+echo '/cygdrive/c/Program\ Files/Beyond\ Compare\ 4/BCompare.exe  $A $B & '
 echo '}'
 } >>  ~/.bashrc
 
