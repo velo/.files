@@ -15,6 +15,10 @@ git config --global user.name "Marvin Froeder"
 git config --global push.default matching
 git config --global core.filemode false
 
+git config --global help.autocorrect 1
+
+
+
 {
 echo '[difftool]'
 echo '	prompt = false'
